@@ -31,3 +31,44 @@ body {
     text-wrap: balance;
   }
 }
+
+.hover-effect {
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: scale(1.1);
+}
+
+.relative {
+  position: relative;
+}
+
+.group:hover .hover-effect {
+  transform: scale(1.1);
+}
+
+.group:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+}

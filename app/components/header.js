@@ -5,7 +5,7 @@ import Logo from "@/public/logo.jpg";
 
 export default function Header() {
   return (
-    <div className="text-2xl bg-amber-300 h-20 w-full m-3 shadow-md">
+    <div className="text-2xl h-20 fixed top-0 w-full z-10 bg-amber-300 m-3 shadow-md">
       <div className="flex items-center ml-5">
         <Image
           src={Logo}
@@ -17,25 +17,25 @@ export default function Header() {
         <h1 className="font-serif">ShopHub</h1>
         <div className="ml-96">
           <Link
-            className="ml-72 hover:underline hover:text-blue-700 font-medium font-weight:100"
+            className="ml-72 hover:underline hover:text-amber-600 font-medium font-weight:100"
             href=""
           >
             Home
           </Link>
           <Link
-            className="ml-10 hover:underline hover:text-blue-700 font-medium font-weight:100"
+            className="ml-10 hover:underline hover:text-amber-600 font-medium font-weight:100"
             href=""
           >
             Categories
           </Link>
           <Link
-            className="ml-10 hover:underline hover:text-blue-700 font-medium font-weight:100"
+            className="ml-10 hover:underline hover:text-amber-600 font-medium font-weight:100"
             href=""
           >
             Trending
           </Link>
           <Link
-            className="ml-10 hover:underline hover:text-blue-700 font-medium font-weight:100"
+            className="ml-10 hover:underline hover:text-amber-600 font-medium font-weight:100"
             href=""
           >
             Orders

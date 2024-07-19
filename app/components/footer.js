@@ -8,7 +8,7 @@ import LinkedIn from "@/public/linkedin.svg";
 
 export default function Footer() {
   return (
-    <div className="text-2xl bg-amber-300 h-20 w-full m-3 shadow-md">
+    <div className="text-2xl h-20 w-full bg-amber-300 m-3 shadow-md">
       <div className="flex items-center ml-5">
         <Image
           src={Logo}
