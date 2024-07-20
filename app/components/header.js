@@ -5,7 +5,7 @@ import Logo from "@/public/logo.jpg";
 
 export default function Header() {
   return (
-    <div className="text-2xl h-20 fixed top-0 w-full z-10 bg-amber-300 m-3 shadow-md">
+    <div className="text-2xl h-20 top-0 w-full bg-amber-300 mb-3 shadow-md">
       <div className="flex items-center ml-5">
         <Image
           src={Logo}
@@ -18,7 +18,7 @@ export default function Header() {
         <div className="ml-96">
           <Link
             className="ml-72 hover:underline hover:text-amber-600 font-medium font-weight:100"
-            href=""
+            href="./"
           >
             Home
           </Link>

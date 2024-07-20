@@ -8,7 +8,7 @@ import LinkedIn from "@/public/linkedin.svg";
 
 export default function Footer() {
   return (
-    <div className="text-2xl h-20 w-full bg-amber-300 m-3 shadow-md">
+    <div className="text-2xl h-20 w-full bg-amber-300 mt-10 shadow-md">
       <div className="flex items-center ml-5">
         <Image
           src={Logo}
@@ -41,19 +41,19 @@ export default function Footer() {
         />
         <Link
           className="ml-40 text-base hover:underline hover:text-blue-700"
-          href="@/termsandconditions/terms-and-condition"
+          href="./terms-condition"
         >
           Terms and Conditions
         </Link>
         <Link
           className="ml-10 text-base hover:underline hover:text-blue-700"
-          href=""
+          href="./contact-us"
         >
           Contact Us
         </Link>
         <Link
           className="ml-10 text-base hover:underline hover:text-blue-700"
-          href=""
+          href="./about-us"
         >
           About Us
         </Link>
