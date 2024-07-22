@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ export default function ContactUs() {
     email: "",
     concern: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,19 +23,24 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Your response has been recorded and you will get a reply by mail");
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
     setFormData({
       firstName: "",
       lastName: "",
       email: "",
       concern: "",
     });
+    router.push("/");
   };
 
   return (
-    <main className="bg-orange-100 text-black min-h-screen flex items-center justify-center">
+    <main className="bg-orange-100 text-black min-h-screen flex items-center justify-center relative">
       <div className="p-6 rounded-lg shadow-lg bg-amber-300 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Contact Us</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">CONTACT US</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black-700 mb-2" htmlFor="firstName">
@@ -97,6 +105,23 @@ export default function ContactUs() {
           </button>
         </form>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm text-center">
+            <p className="mb-4">
+              We have received your submission and will respond to you through
+              email soon.
+            </p>
+            <button
+              onClick={handleModalClose}
+              className="bg-blue-500 text-white py-2 px-4 mt-5 rounded-lg hover:bg-blue-600 focus:outline-none"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

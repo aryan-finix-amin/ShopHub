@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen items-center justify-between bg-orange-100">
       <Header />
-      <h1 className="font-bold text-6xl absolute top-36 left-10 mt-40 ml-36">
+      <h1 className="font-bold text-6xl absolute top-36 left-10 mt-28 ml-36">
         Upto 50% off on <br />
         all Men's Wear
         <p className="font-normal text-sm ml-2 mt-1">
@@ -19,9 +19,9 @@ export default function Home() {
         src="/discount.png"
         height={550}
         width={550}
-        className="absolute top-28 right-40"
+        className="absolute top-16 right-40"
       ></img>
-      <div className="flex flex-row mt-80 mr-auto ml-40">
+      <div className="flex flex-row mt-64 mr-auto ml-40">
         <div className="relative group">
           <img
             src="/Mens.jpg"
