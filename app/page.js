@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
@@ -23,40 +24,46 @@ export default function Home() {
       ></img>
       <div className="flex flex-row mt-64 mr-auto ml-40">
         <div className="relative group">
-          <img
-            src="/Mens.jpg"
-            height={200}
-            width={200}
-            className="mt-80 rounded-lg hover-effect"
-          />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-80">
-            <p className="text-white text-lg">Men's Wear</p>
-          </div>
+          <Link href="/mens">
+            <img
+              src="/Mens.jpg"
+              height={200}
+              width={200}
+              className="mt-80 rounded-lg hover-effect"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-80">
+              <p className="text-white text-lg">Men's Wear</p>
+            </div>
+          </Link>
         </div>
         <div className="ml-60 mt-80">
           <div className="relative group">
-            <img
-              src="/Kids.webp"
-              height={340}
-              width={340}
-              className="rounded-lg hover-effect"
-            ></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-lg">Kid's Wear</p>
-            </div>
+            <Link href="/kids">
+              <img
+                src="/Kids.webp"
+                height={340}
+                width={340}
+                className="rounded-lg hover-effect"
+              ></img>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-lg">Kid's Wear</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="absolute inset-y-auto right-40">
           <div className="relative group">
-            <img
-              src="/Womens.jpg"
-              height={200}
-              width={200}
-              className="ml-96 mt-80 rounded-lg hover-effect"
-            ></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-96">
-              <p className="text-white text-lg">Women's Wear</p>
-            </div>
+            <Link href="/womens">
+              <img
+                src="/Womens.jpg"
+                height={200}
+                width={200}
+                className="mt-80 rounded-lg hover-effect"
+              ></img>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-lg">Women's Wear</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
