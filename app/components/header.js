@@ -86,9 +86,9 @@ export default function Header() {
             className="ml-10 hover:underline hover:text-amber-600 font-medium"
             href=""
           >
-            Profile
+            Your Cart
           </Link>
-          <Link href="" className="ml-16">
+          <Link href="" className="ml-10">
             <FontAwesomeIcon icon={faUser} className="ml-2" size="m" />
           </Link>
         </div>
