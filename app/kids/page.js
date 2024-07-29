@@ -10,23 +10,26 @@ export default function Page() {
       src: "/kids1.png",
       title: "Printed Tank Top",
       price: "$6.99",
-      description: "Material: Cotton",
+      description:
+        "Tank top in soft cotton jersey with a printed design. Round, ribbed neck and a straight-cut hem.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
     {
       src: "/kids2.png",
-      title: "Swim Short",
-      price: "$19.99",
-      description: "Comfortable swim shorts for a great day at the beach.",
+      title: "Superstretch Slim Fit Jeans",
+      price: "$14.99",
+      description:
+        "Slim-fit jeans in washed, superstretch denim for added freedom of movement. Adjustable, elasticized waistband, mock fly with button, front pockets, and back pockets.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
     {
       src: "/kids3.png",
-      title: "Printed Tank Top",
-      price: "$6.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      title: "Motif-detail T-shirt and Short",
+      price: "$39.99",
+      description:
+        "Loose-fit, knee-length cargo shorts in washed denim with a generous but not oversized silhouette. Elasticized, drawstring waistband, mock fly, side pockets, and leg pockets with flap.Loose-fit T-shirt in soft cotton jersey with a motif at front. Ribbed neck and dropped shoulders.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
@@ -34,7 +37,8 @@ export default function Page() {
       src: "/kids4.png",
       title: "3-Pack Cotton Joggers",
       price: "$39.99",
-      description: "Comfortable cotton joggers in a pack of three.",
+      description:
+        "Joggers in cotton twill. Elasticized, drawstring waistband, mock fly, and diagonal side pockets. Straight legs with pleats at knees and elasticized hems.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
@@ -42,7 +46,8 @@ export default function Page() {
       src: "/kids5.png",
       title: "Printed T-Shirt",
       price: "$14.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      description:
+        "Loose-fit T-shirt in soft cotton jersey with a printed motif. Ribbed neck and dropped shoulders.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
@@ -50,31 +55,35 @@ export default function Page() {
       src: "/kids6.png",
       title: "Rugby Shirt",
       price: "$12.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      description:
+        "Rugby shirt in lightweight sweatshirt fabric. Collar, button placket, dropped shoulders, and long sleeves. Ribbing at cuffs and hem.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
     {
       src: "/kids7.png",
-      title: "Crew Neck Shirt",
+      title: "Twill Joggers",
       price: "$12.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      description:
+        "Joggers in cotton twill. Elasticized, drawstring waistband, mock fly, and diagonal side pockets. Straight legs with pleats at knees and elasticized hems.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
     {
       src: "/kids8.png",
-      title: "Printed Sweartshirt",
-      price: "$17.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      title: "2-pack Polo Shirts",
+      price: "$19.99",
+      description:
+        "Polo shirts in cotton piqué with an embroidered detail on chest. Ribbed collar, button placket, and short sleeves with ribbed cuffs.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
     {
       src: "/kids9.png",
-      title: "Printed Sweartshirt",
+      title: "Printed Jersey Shorts",
       price: "$17.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      description:
+        "Disney x Keith Haring. Loose-fit T-shirt in soft cotton jersey with a printed pattern. Ribbed crew neck and dropped shoulders.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
@@ -82,7 +91,8 @@ export default function Page() {
       src: "/kids10.png",
       title: "Printed T-Shirt",
       price: "$14.99",
-      description: "A beautiful printed tank top perfect for summer.",
+      description:
+        "Loose-fit T-shirt in soft cotton jersey with a printed motif. Ribbed neck and dropped shoulders.",
       quantity: 1,
       sizes: ["XS", "S", "M", "L", "XL"],
     },
@@ -124,8 +134,8 @@ export default function Page() {
     setSizeChartOpen(false);
   };
 
-  const handleAddToCart = () => {
-    addToCart({ ...selectedItem, selectedSize });
+  const addToCart = () => {
+    // Add to cart functionality can be implemented here
     alert("Item added to cart!");
     closeModal();
   };
@@ -238,7 +248,7 @@ export default function Page() {
                 </button>
               </div>
               <button
-                onClick={handleAddToCart}
+                onClick={addToCart}
                 className="add-to-cart-button bg-blue-500 text-white px-4 py-2 rounded mt-4"
               >
                 Add to Cart
