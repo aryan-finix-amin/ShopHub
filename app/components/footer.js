@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/public/logo.jpg";
 import Instagram from "@/public/instagram.png";
 import Facebook from "@/public/facebook.png";
-import LinkedIn from "@/public/linkedin.svg";
+import Twitter from "@/public/twitter.png";
 
 export default function Footer() {
   return (
@@ -36,10 +36,10 @@ export default function Footer() {
             className="ml-2 rounded-lg hover:scale-110 transition-transform duration-300"
           />
         </Link>
-        <Link href="https://www.linkedin.com" passHref>
+        <Link href="https://www.twitter.com" passHref>
           <Image
-            src={LinkedIn}
-            alt="LinkedIn"
+            src={Twitter}
+            alt="Twitter"
             height={25}
             width={25}
             className="ml-2 rounded-lg hover:scale-110 transition-transform duration-300"

@@ -9,6 +9,7 @@ import Logo from "@/public/logo.jpg";
 
 export default function Header() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [profileDropdownVisible, setProfileDropdownVisible] = useState(false);
   let timeoutId;
 
   const handleMouseEnter = () => {
@@ -19,6 +20,17 @@ export default function Header() {
   const handleMouseLeave = () => {
     timeoutId = setTimeout(() => {
       setDropdownVisible(false);
+    }, 300);
+  };
+
+  const handleProfileMouseEnter = () => {
+    clearTimeout(timeoutId);
+    setProfileDropdownVisible(true);
+  };
+
+  const handleProfileMouseLeave = () => {
+    timeoutId = setTimeout(() => {
+      setProfileDropdownVisible(false);
     }, 300);
   };
 
@@ -36,7 +48,7 @@ export default function Header() {
         <div className="ml-96 flex">
           <Link
             className="ml-72 hover:underline hover:text-amber-600 font-medium"
-            href="./"
+            href="/"
           >
             Home
           </Link>
@@ -78,7 +90,7 @@ export default function Header() {
           </div>
           <Link
             className="ml-10 hover:underline hover:text-amber-600 font-medium"
-            href=""
+            href="/trending"
           >
             Trending
           </Link>
@@ -88,9 +100,29 @@ export default function Header() {
           >
             Your Cart
           </Link>
-          <Link href="/profile" className="ml-10">
-            <FontAwesomeIcon icon={faUser} className="ml-2" size="m" />
-          </Link>
+          <div
+            className="relative ml-10"
+            onMouseEnter={handleProfileMouseEnter}
+            onMouseLeave={handleProfileMouseLeave}
+          >
+            <button className="focus:outline-none flex items-center">
+              <FontAwesomeIcon icon={faUser} className="ml-2 mt-1" size="m" />
+            </button>
+            {profileDropdownVisible && (
+              <div
+                className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50"
+                onMouseEnter={handleProfileMouseEnter}
+                onMouseLeave={handleProfileMouseLeave}
+              >
+                <Link
+                  href="/profile"
+                  className="block px-4 py-2 hover:bg-gray-200"
+                >
+                  Sign-In
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

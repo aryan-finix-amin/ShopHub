@@ -194,7 +194,7 @@ export default function Page() {
         </div>
 
         <div className="your-cart mt-10 p-4 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
+          <h2 className="text-xl font-bold mb-4">YOUR CART</h2>
           {cartItems.length === 0 ? (
             <p>
               Your cart is empty. Browse our categories and add items to your
