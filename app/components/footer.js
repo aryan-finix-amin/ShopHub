@@ -18,27 +18,33 @@ export default function Footer() {
           className="m-5 rounded-lg"
         />
         <h1 className="font-serif">ShopHub</h1>
-        <Image
-          src={Instagram}
-          alt="Instagram"
-          height={25}
-          width={25}
-          className="ml-48 rounded-lg"
-        />
-        <Image
-          src={Facebook}
-          alt="Facebook"
-          height={25}
-          width={25}
-          className="ml-2 rounded-lg"
-        />
-        <Image
-          src={LinkedIn}
-          alt="LinkedIn"
-          height={25}
-          width={25}
-          className="ml-2 rounded-lg"
-        />
+        <Link href="https://www.instagram.com" passHref>
+          <Image
+            src={Instagram}
+            alt="Instagram"
+            height={25}
+            width={25}
+            className="ml-48 rounded-lg hover:scale-110 transition-transform duration-300"
+          />
+        </Link>
+        <Link href="https://www.facebook.com" passHref>
+          <Image
+            src={Facebook}
+            alt="Facebook"
+            height={25}
+            width={25}
+            className="ml-2 rounded-lg hover:scale-110 transition-transform duration-300"
+          />
+        </Link>
+        <Link href="https://www.linkedin.com" passHref>
+          <Image
+            src={LinkedIn}
+            alt="LinkedIn"
+            height={25}
+            width={25}
+            className="ml-2 rounded-lg hover:scale-110 transition-transform duration-300"
+          />
+        </Link>
         <Link
           className="ml-40 text-base hover:underline hover:text-blue-700"
           href="./terms-condition"

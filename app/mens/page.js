@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
 export default function Page() {
+  const router = useRouter();
   const initialItems = [
     {
       src: "/men1.png",
@@ -99,6 +101,7 @@ export default function Page() {
   ];
 
   const [items, setItems] = useState(initialItems);
+  const [cartItems, setCartItems] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
@@ -135,9 +138,14 @@ export default function Page() {
   };
 
   const addToCart = () => {
-    // Add to cart functionality can be implemented here
+    const selectedItem = { ...items[selectedItemIndex], size: selectedSize };
+    setCartItems([...cartItems, selectedItem]);
     alert("Item added to cart!");
     closeModal();
+  };
+
+  const proceedToCheckout = () => {
+    router.push("/your-cart");
   };
 
   return (
@@ -184,7 +192,55 @@ export default function Page() {
             ))}
           </div>
         </div>
+
+        <div className="your-cart mt-10 p-4 bg-white rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
+          {cartItems.length === 0 ? (
+            <p>
+              Your cart is empty. Browse our categories and add items to your
+              cart.
+            </p>
+          ) : (
+            <ul>
+              {cartItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center my-2"
+                >
+                  <div className="flex items-center">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-16 h-16 rounded-lg mr-4"
+                    />
+                    <div>
+                      <p className="font-semibold">{item.title}</p>
+                      <p className="text-gray-600">{item.price}</p>
+                      <p className="text-gray-600">Size: {item.size}</p>
+                      <p className="text-gray-600">Quantity: {item.quantity}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={proceedToCheckout}
+                    className="px-2 py-1 bg-green-500 absolute right-40 text-white rounded"
+                  >
+                    Proceed to Checkout
+                  </button>
+                  <button
+                    className="px-2 py-1 bg-red-500 text-white rounded"
+                    onClick={() =>
+                      setCartItems(cartItems.filter((_, i) => i !== index))
+                    }
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
+
       {modalOpen && selectedItemIndex !== null && (
         <div className="modal-background fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <div className="modal bg-white p-8 rounded-lg shadow-lg">
@@ -259,6 +315,7 @@ export default function Page() {
           </div>
         </div>
       )}
+
       {sizeChartOpen && (
         <div className="modal-background fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <div className="modal bg-white p-8 rounded-lg shadow-lg">

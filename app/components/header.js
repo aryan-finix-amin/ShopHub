@@ -84,7 +84,7 @@ export default function Header() {
           </Link>
           <Link
             className="ml-10 hover:underline hover:text-amber-600 font-medium"
-            href=""
+            href="/your-cart"
           >
             Your Cart
           </Link>
