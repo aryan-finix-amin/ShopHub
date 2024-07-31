@@ -88,7 +88,7 @@ export default function Header() {
           >
             Your Cart
           </Link>
-          <Link href="" className="ml-10">
+          <Link href="/profile" className="ml-10">
             <FontAwesomeIcon icon={faUser} className="ml-2" size="m" />
           </Link>
         </div>

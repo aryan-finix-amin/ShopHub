@@ -1,106 +1,3 @@
-// // import React from "react";
-// // import Header from "../components/header";
-// // import Footer from "../components/footer";
-// // import Slider from "react-slick";
-// // import "slick-carousel/slick/slick.css";
-// // import "slick-carousel/slick/slick-theme.css";
-
-// // export default function Men() {
-// //   const settings = {
-// //     dots: true,
-// //     infinite: true,
-// //     speed: 500,
-// //     slidesToShow: 1,
-// //     slidesToScroll: 1
-// //   };
-
-// //   return (
-// //     <>
-// //       <Header />
-// //       <div style={{ margin: "0 auto", padding: "40px", maxWidth: "800px" }}>
-// //         <Slider {...settings}>
-// //           <div>
-// //             <img src="/menimage1.png" alt="Image 1" />
-// //             <p>Description for Image 1</p>
-// //           </div>
-// //           <div>
-// //             <img src="/menimage2.png" alt="Image 2" />
-// //             <p>Description for Image 2</p>
-// //           </div>
-// //           <div>
-// //             <img src="/shoe1.png" alt="Image 3" />
-// //             <p>Description for Image 3</p>
-// //           </div>
-// //           <div>
-// //             <img src="/shoe2.png" alt="Image 4" />
-// //             <p>Description for Image 4</p>
-// //           </div>
-// //           <div>
-// //             <img src="/shoe3.png" alt="Image 5" />
-// //             <p>Description for Image 5</p>
-// //           </div>
-// //         </Slider>
-// //       </div>
-// //       <Footer />
-// //     </>
-// //   );
-// // }
-
-// import React from "react";
-// import Header from "../components/header";
-// import Footer from "../components/footer";
-// import Image from "next/image";
-// import Menimage1 from "@/public/menimage1.png";
-// import Menimage2 from "@/public/menimage2.png";
-// import Shoe1 from "@/public/shoe1.png";
-// import Shoe2 from "@/public/shoe2.png";
-// import Shoe3 from "@/public/Shoe3.png";
-
-// export default function Men() {
-//  return (
-//   <>
-//   <Header/>
-//   <Image
-//           src={Menimage1}
-//           alt="Menimage"
-//           height={40}
-//           width={40}
-//           className="m-5 rounded-lg"
-//         />
-//   <Image
-//           src={Menimage2}
-//           alt="Menimage"
-//           height={40}
-//           width={40}
-//           className="m-5 rounded-lg"
-//         />
-//   <Image
-//           src={Shoe1}
-//           alt="Shoe"
-//           height={40}
-//           width={40}
-//           className="m-5 rounded-lg"
-//         />
-//   <Image
-//           src={Shoe2}
-//           alt="Shoe"
-//           height={40}
-//           width={40}
-//           className="m-5 rounded-lg"
-//         />
-//   <Image
-//           src={Shoe3}
-//           alt="Shoe"
-//           height={40}
-//           width={40}
-//           className="m-5 rounded-lg"
-//         />
-//   <Footer/>
-//   </>
-//  )
-
-// }
-
 "use client";
 
 import React, { useState } from "react";
@@ -203,19 +100,19 @@ export default function Page() {
 
   const [items, setItems] = useState(initialItems);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
   const [sizeChartOpen, setSizeChartOpen] = useState(false);
 
-  const openModal = (item) => {
-    setSelectedItem(item);
-    setSelectedSize(item.sizes[0]);
+  const openModal = (index) => {
+    setSelectedItemIndex(index);
+    setSelectedSize(items[index].sizes[0]);
     setModalOpen(true);
   };
 
   const closeModal = () => {
     setModalOpen(false);
-    setSelectedItem(null);
+    setSelectedItemIndex(null);
     setSelectedSize("");
   };
 
@@ -253,7 +150,7 @@ export default function Page() {
               <div
                 key={index}
                 className="box-container p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                onClick={() => openModal(item)}
+                onClick={() => openModal(index)}
               >
                 <img
                   src={item.src}
@@ -288,7 +185,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {modalOpen && selectedItem && (
+      {modalOpen && selectedItemIndex !== null && (
         <div className="modal-background fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <div className="modal bg-white p-8 rounded-lg shadow-lg">
             <div className="modal-content">
@@ -299,31 +196,33 @@ export default function Page() {
                 &times;
               </span>
               <img
-                src={selectedItem.src}
+                src={items[selectedItemIndex].src}
                 alt="Selected"
                 className="modal-image mx-auto my-4"
                 style={{ maxWidth: "100%", height: "auto" }}
               />
               <p className="modal-title text-xl font-semibold">
-                {selectedItem.title}
+                {items[selectedItemIndex].title}
               </p>
-              <p className="modal-price text-gray-600">{selectedItem.price}</p>
+              <p className="modal-price text-gray-600">
+                {items[selectedItemIndex].price}
+              </p>
               <p className="modal-description my-4">
-                {selectedItem.description}
+                {items[selectedItemIndex].description}
               </p>
               <div className="quantity-control-modal flex items-center justify-center mt-4">
                 <button
                   className="px-2 py-1 border border-gray-300"
-                  onClick={() =>
-                    updateQuantity(items.indexOf(selectedItem), -1)
-                  }
+                  onClick={() => updateQuantity(selectedItemIndex, -1)}
                 >
                   -
                 </button>
-                <span className="px-4">{selectedItem.quantity}</span>
+                <span className="px-4">
+                  {items[selectedItemIndex].quantity}
+                </span>
                 <button
                   className="px-2 py-1 border border-gray-300"
-                  onClick={() => updateQuantity(items.indexOf(selectedItem), 1)}
+                  onClick={() => updateQuantity(selectedItemIndex, 1)}
                 >
                   +
                 </button>
@@ -331,7 +230,7 @@ export default function Page() {
               <div className="size-selector mt-4 text-center">
                 <label>Select Size:</label>
                 <div className="size-boxes flex justify-center mt-2">
-                  {selectedItem.sizes.map((size, idx) => (
+                  {items[selectedItemIndex].sizes.map((size, idx) => (
                     <div
                       key={idx}
                       className={`size-box cursor-pointer border rounded px-4 py-2 mx-1 ${
