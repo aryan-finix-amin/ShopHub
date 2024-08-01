@@ -7,10 +7,10 @@ export default function Page() {
     <main className="min-h-screen bg-orange-100">
       <Header />
       <div className="text-xl ml-3">
-        <h1 className="text-4xl font-bold text-amber-600 text-center mt-5">
+        <h1 className="text-4xl font-bold text-black text-center mt-5">
           About Us
         </h1>
-        <h2 className="text-4xl font-bold text-amber-600 text-center mt-3">
+        <h2 className="text-4xl font-bold text-black text-center mt-3">
           Welcome to ShopHub!
         </h2>
         <p className="mt-3">
@@ -24,7 +24,7 @@ export default function Page() {
           change that by creating a hub where all your shopping needs are met
           with ease and efficiency.
         </p>
-        <h2 className="font-semibold mt-5 text-amber-600 underline">
+        <h2 className="font-semibold mt-5 text-black underline">
           What We Offer
         </h2>
         <p className="mt-2">
@@ -37,23 +37,21 @@ export default function Page() {
           guarantees fast and reliable delivery, ensuring your orders arrive
           promptly and in perfect condition.
         </p>
-        <h2 className="font-semibold mt-5 text-amber-600 underline">
-          Our Team
-        </h2>
+        <h2 className="font-semibold mt-5 text-black underline">Our Team</h2>
         <p className="mt-2">
           Our team is made up of passionate individuals who are dedicated to
           making your shopping experience as smooth and enjoyable as possible.
           From our customer service representatives to our tech developers,
           every member of the ShopHub family plays a vital role in our success.
         </p>
-        <h2 className="font-semibold mt-5 text-amber-600 underline">Join Us</h2>
+        <h2 className="font-semibold mt-5 text-black underline">Join Us</h2>
         <p className="mt-2">
           We are always looking to improve and grow. If you have any suggestions
           or feedback, we'd love to hear from you. Join us on our journey to
           revolutionize the way you shop and experience the convenience and joy
           of ShopHub.
         </p>
-        <h2 className="text-4xl font-bold text-amber-600 text-center mt-7">
+        <h2 className="text-4xl font-bold text-black text-center mt-7">
           Thank you for choosing ShopHub!
         </h2>
       </div>

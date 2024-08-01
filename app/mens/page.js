@@ -148,6 +148,15 @@ export default function Page() {
     router.push("/your-cart");
   };
 
+  const calculateTotalAmount = () => {
+    return cartItems
+      .reduce((total, item) => {
+        const price = parseFloat(item.price.replace("$", ""));
+        return total + price * item.quantity;
+      }, 0)
+      .toFixed(2);
+  };
+
   return (
     <main className="min-h-screen bg-orange-100">
       <Header />
@@ -201,42 +210,51 @@ export default function Page() {
               cart.
             </p>
           ) : (
-            <ul>
-              {cartItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex justify-between items-center my-2"
-                >
-                  <div className="flex items-center">
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="w-16 h-16 rounded-lg mr-4"
-                    />
-                    <div>
-                      <p className="font-semibold">{item.title}</p>
-                      <p className="text-gray-600">{item.price}</p>
-                      <p className="text-gray-600">Size: {item.size}</p>
-                      <p className="text-gray-600">Quantity: {item.quantity}</p>
+            <div>
+              <ul>
+                {cartItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex justify-between items-center my-2"
+                  >
+                    <div className="flex items-center">
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-16 h-16 rounded-lg mr-4"
+                      />
+                      <div>
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="text-gray-600">{item.price}</p>
+                        <p className="text-gray-600">Size: {item.size}</p>
+                        <p className="text-gray-600">
+                          Quantity: {item.quantity}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <button
-                    onClick={proceedToCheckout}
-                    className="px-2 py-1 bg-green-500 absolute right-40 text-white rounded"
-                  >
-                    Proceed to Checkout
-                  </button>
-                  <button
-                    className="px-2 py-1 bg-red-500 text-white rounded"
-                    onClick={() =>
-                      setCartItems(cartItems.filter((_, i) => i !== index))
-                    }
-                  >
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
+                    <button
+                      className="px-2 py-1 bg-red-500 text-white rounded"
+                      onClick={() =>
+                        setCartItems(cartItems.filter((_, i) => i !== index))
+                      }
+                    >
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="total-amount text-right font-bold text-lg mt-4">
+                Total Amount: ${calculateTotalAmount()}
+              </div>
+              <div className="text-right mt-4">
+                <button
+                  onClick={proceedToCheckout}
+                  className="px-4 py-2 bg-green-500 text-white rounded mt-4"
+                >
+                  Proceed to Checkout
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>

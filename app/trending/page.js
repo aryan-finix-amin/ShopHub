@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "../components/header";
@@ -7,8 +8,8 @@ import Footer from "../components/footer";
 export default function Page() {
   const router = useRouter();
   const images = [
-    "/trending2.png",
     "/trending1.png",
+    "/trending2.png",
     "/trending3.png",
     "/trending4.png",
     "/trending5.png",
@@ -24,20 +25,19 @@ export default function Page() {
       sizes: ["6", "7", "8", "9", "10"],
     },
     {
-      src: "/shoe2.png",
-      title: "Classic Running Shoes",
-      price: "$49.99",
-      description: "Durable running shoes with excellent grip.",
-      quantity: 1,
-      sizes: ["6", "7", "8", "9", "10"],
-    },
-    {
       src: "/shirt1.png",
       title: "Casual T-Shirt",
       price: "$19.99",
       description: "Soft cotton t-shirt with a relaxed fit.",
       quantity: 1,
       sizes: ["S", "M", "L", "XL"],
+    },
+    {
+      src: "/bag1.png",
+      title: "Leather Backpack",
+      price: "$89.99",
+      description: "Stylish and spacious leather backpack.",
+      quantity: 1,
     },
     {
       src: "/shirt2.png",
@@ -48,11 +48,12 @@ export default function Page() {
       sizes: ["S", "M", "L", "XL"],
     },
     {
-      src: "/bag1.png",
-      title: "Leather Backpack",
-      price: "$89.99",
-      description: "Stylish and spacious leather backpack.",
+      src: "/shoe2.png",
+      title: "Classic Running Shoes",
+      price: "$49.99",
+      description: "Durable running shoes with excellent grip.",
       quantity: 1,
+      sizes: ["6", "7", "8", "9", "10"],
     },
   ];
 
@@ -113,6 +114,15 @@ export default function Page() {
     router.push("/your-cart");
   };
 
+  const calculateTotalAmount = () => {
+    return cartItems
+      .reduce((total, item) => {
+        const price = parseFloat(item.price.replace("$", ""));
+        return total + price * item.quantity;
+      }, 0)
+      .toFixed(2);
+  };
+
   return (
     <main className="min-h-screen bg-orange-100 flex flex-col items-center">
       <Header />
@@ -136,11 +146,11 @@ export default function Page() {
           ></span>
         ))}
       </div>
-      <div className="bottom-images-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-10">
+      <div className="bottom-images-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-10 justify-center px-4">
         {items.map((item, index) => (
           <div
             key={index}
-            className="box-container p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="box-container p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
             onClick={() => openModal(index)}
           >
             <img
@@ -174,45 +184,59 @@ export default function Page() {
           </div>
         ))}
       </div>
-      <div className="your-cart mt-10 p-4 bg-white rounded-lg shadow-md">
+      <div className="your-cart mt-10 p-4 bg-white rounded-lg shadow-md w-[1450px]">
         <h2 className="text-xl font-bold mb-4">YOUR CART</h2>
         {cartItems.length === 0 ? (
-          <p>Your cart is empty. Browse our categories and add items to your cart.</p>
+          <p>
+            Your cart is empty. Browse our categories and add items to your
+            cart.
+          </p>
         ) : (
-          <ul>
-            {cartItems.map((item, index) => (
-              <li
-                key={index}
-                className="flex justify-between items-center my-2"
-              >
-                <div className="flex items-center">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-16 h-16 rounded-lg mr-4"
-                  />
-                  <div>
-                    <p className="font-semibold">{item.title}</p>
-                    <p className="text-gray-600">{item.price}</p>
-                    {item.size && <p className="text-gray-600">Size: {item.size}</p>}
-                    <p className="text-gray-600">Quantity: {item.quantity}</p>
+          <div>
+            <ul>
+              {cartItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center my-2"
+                >
+                  <div className="flex items-center">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-16 h-16 rounded-lg mr-4"
+                    />
+                    <div>
+                      <p className="font-semibold">{item.title}</p>
+                      <p className="text-gray-600">{item.price}</p>
+                      {item.size && (
+                        <p className="text-gray-600">Size: {item.size}</p>
+                      )}
+                      <p className="text-gray-600">Quantity: {item.quantity}</p>
+                    </div>
                   </div>
-                </div>
-                <button
-                  onClick={proceedToCheckout}
-                  className="px-2 py-1 bg-green-500 text-white rounded"
-                >
-                  Proceed to Checkout
-                </button>
-                <button
-                  className="px-2 py-1 bg-red-500 text-white rounded"
-                  onClick={() => setCartItems(cartItems.filter((_, i) => i !== index))}
-                >
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
+                  <button
+                    className="px-2 py-1 bg-red-500 text-white rounded"
+                    onClick={() =>
+                      setCartItems(cartItems.filter((_, i) => i !== index))
+                    }
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="text-right font-bold text-lg mt-4">
+              Total Amount: ${calculateTotalAmount()}
+            </div>
+            <div className="text-right mt-4">
+              <button
+                onClick={proceedToCheckout}
+                className="px-4 py-2 bg-green-500 text-white rounded"
+              >
+                Proceed to Checkout
+              </button>
+            </div>
+          </div>
         )}
       </div>
       {modalOpen && selectedItemIndex !== null && (
@@ -247,7 +271,9 @@ export default function Page() {
                 >
                   -
                 </button>
-                <span className="px-4">{items[selectedItemIndex].quantity}</span>
+                <span className="px-4">
+                  {items[selectedItemIndex].quantity}
+                </span>
                 <button
                   className="px-2 py-1 border border-gray-300"
                   onClick={() => updateQuantity(selectedItemIndex, 1)}

@@ -46,19 +46,19 @@ export default function Footer() {
           />
         </Link>
         <Link
-          className="ml-40 text-base hover:underline hover:text-blue-700"
+          className="ml-40 text-base hover:underline hover:text-amber-700"
           href="./terms-condition"
         >
           Terms and Conditions
         </Link>
         <Link
-          className="ml-10 text-base hover:underline hover:text-blue-700"
+          className="ml-10 text-base hover:underline hover:text-amber-700"
           href="./contact-us"
         >
           Contact Us
         </Link>
         <Link
-          className="ml-10 text-base hover:underline hover:text-blue-700"
+          className="ml-10 text-base hover:underline hover:text-amber-700"
           href="./about-us"
         >
           About Us
