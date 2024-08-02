@@ -2,6 +2,14 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  FaUser,
+  FaEnvelope,
+  FaAddressCard,
+  FaCity,
+  FaMapMarkerAlt,
+  FaPhone,
+} from "react-icons/fa";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -29,93 +37,53 @@ export default function YourCartPage() {
     router.push("/payment");
   };
 
+  const formFields = [
+    { label: "Name", name: "name", type: "text", icon: <FaUser /> },
+    { label: "Email", name: "email", type: "email", icon: <FaEnvelope /> },
+    {
+      label: "Address",
+      name: "address",
+      type: "text",
+      icon: <FaAddressCard />,
+    },
+    { label: "City", name: "city", type: "text", icon: <FaCity /> },
+    { label: "State", name: "state", type: "text", icon: <FaMapMarkerAlt /> },
+    { label: "Zip Code", name: "zip", type: "text" },
+    { label: "Phone Number", name: "phone", type: "text", icon: <FaPhone /> },
+  ];
+
   return (
-    <main className="min-h-screen bg-orange-100">
+    <main className="min-h-screen bg-gradient-to-r from-orange-100 to-orange-200">
       <Header />
-      <div className="bg-white p-10 rounded-lg shadow-md mt-10 mx-10">
-        <h2 className="text-2xl font-semibold mb-4">Shipping Details</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-black-700">Address</label>
-            <input
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">City</label>
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">State</label>
-            <input
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Zip Code</label>
-            <input
-              type="text"
-              name="zip"
-              value={formData.zip}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Phone Number</label>
-            <input
-              type="text"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border rounded"
-            />
-          </div>
+      <div className="bg-white p-8 md:p-16 rounded-lg shadow-lg mt-10 mx-auto max-w-2xl">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+          Shipping Details
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {formFields.map(({ label, name, type, icon }) => (
+            <div key={name} className="relative">
+              <label className="block text-gray-700 font-medium mb-1">
+                {label}
+              </label>
+              <div className="relative flex items-center">
+                {icon && (
+                  <span className="absolute left-3 text-gray-400">{icon}</span>
+                )}
+                <input
+                  type={type}
+                  name={name}
+                  value={formData[name]}
+                  onChange={handleChange}
+                  required
+                  className="w-full mt-1 p-3 pl-10 border border-gray-300 rounded focus:ring focus:ring-orange-200 focus:outline-none"
+                />
+              </div>
+            </div>
+          ))}
           <div className="text-right">
             <button
               type="submit"
-              className="px-4 py-2 bg-green-500 text-white mt-5 rounded"
+              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg shadow-lg hover:from-orange-600 hover:to-orange-700 transition duration-300"
             >
               Submit
             </button>
