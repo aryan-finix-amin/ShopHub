@@ -49,7 +49,7 @@ export default function PaymentPage() {
     e.preventDefault();
     if (validateForm()) {
       console.log("Payment data submitted:", formData);
-      router.push("/");
+      router.push("/order-confirmation");
     }
   };
 
@@ -144,7 +144,8 @@ export default function PaymentPage() {
             )}
           </div>
           <div className="text-right">
-            <button
+            <button 
+              onClick={handleSubmit}
               type="submit"
               className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg shadow-lg hover:from-orange-600 hover:to-orange-700 transition duration-300"
             >
