@@ -12,8 +12,9 @@ import {
 } from "react-icons/fa";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import withAuth from "../authentication/page";
 
-export default function YourCartPage() {
+function YourCartPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +29,7 @@ export default function YourCartPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -94,3 +95,5 @@ export default function YourCartPage() {
     </main>
   );
 }
+
+export default withAuth(YourCartPage);

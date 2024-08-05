@@ -39,7 +39,7 @@ export default function ContactUs() {
 
   return (
     <main className="bg-orange-100 text-black min-h-screen flex items-center justify-center relative">
-      <div className="p-6 rounded-lg shadow-lg bg-amber-300 w-full max-w-md">
+      <div className="p-6 rounded-lg shadow-lg bg-white w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">CONTACT US</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -52,7 +52,7 @@ export default function ContactUs() {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-black-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-orange-200 focus:outline-none"
               required
             />
           </div>
@@ -66,7 +66,7 @@ export default function ContactUs() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-orange-200 focus:outline-none"
               required
             />
           </div>
@@ -80,7 +80,7 @@ export default function ContactUs() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-orange-200 focus:outline-none"
               required
             />
           </div>
@@ -93,7 +93,7 @@ export default function ContactUs() {
               name="concern"
               value={formData.concern}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-orange-200 focus:outline-none"
               required
             />
           </div>
