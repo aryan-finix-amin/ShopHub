@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { useUserAuth } from "../_utils/auth-context";
 import Link from "next/link";
@@ -24,7 +23,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-orange-200 text-center flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-orange-100 text-center flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-5xl font-extrabold mb-12 text-gray-800">ShopHub</h1>
         {user ? (
