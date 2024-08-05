@@ -9,11 +9,11 @@ export default function Home() {
       <Header />
       <h1 className="font-bold text-6xl absolute top-36 left-10 mt-28 ml-36">
         Upto 50% off on <br />
-        all Men's Wear
+        all Men&apos;s Wear
         <p className="font-normal text-sm ml-2 mt-1">
           For a limited time, enjoy 50% off on all products across our store.
           <br />
-          Don’t miss out on our exclusive discount!
+          Don&apos;t miss out on our exclusive discount!
         </p>
       </h1>
       <img
@@ -32,7 +32,7 @@ export default function Home() {
               className="mt-80 rounded-lg hover-effect"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-80">
-              <p className="text-white text-lg">Men's Wear</p>
+              <p className="text-white text-lg">Men&apos;s Wear</p>
             </div>
           </Link>
         </div>
@@ -46,7 +46,7 @@ export default function Home() {
                 className="rounded-lg hover-effect"
               ></img>
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-lg">Kid's Wear</p>
+                <p className="text-white text-lg">Kid&apos;s Wear</p>
               </div>
             </Link>
           </div>
@@ -61,7 +61,7 @@ export default function Home() {
                 className="mt-80 rounded-lg hover-effect"
               ></img>
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-lg">Women's Wear</p>
+                <p className="text-white text-lg">Women&apos;s Wear</p>
               </div>
             </Link>
           </div>

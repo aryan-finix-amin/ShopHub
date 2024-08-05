@@ -47,9 +47,9 @@ export default function Page() {
         <h2 className="font-semibold mt-5 text-black underline">Join Us</h2>
         <p className="mt-2">
           We are always looking to improve and grow. If you have any suggestions
-          or feedback, we'd love to hear from you. Join us on our journey to
-          revolutionize the way you shop and experience the convenience and joy
-          of ShopHub.
+          or feedback, we&apos;d love to hear from you. Join us on our journey
+          to revolutionize the way you shop and experience the convenience and
+          joy of ShopHub.
         </p>
         <h2 className="text-4xl font-bold text-black text-center mt-7">
           Thank you for choosing ShopHub!
